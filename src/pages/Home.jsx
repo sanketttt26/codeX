@@ -66,38 +66,21 @@
 
 // export default Home;
 
-
 import React from 'react';
 import languages from '../languages.js';
-import logo from '../assets/logo.svg';
-import logoBLK from '../assets/logoBLK.svg'
-import { FaGithub } from "react-icons/fa";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
+
+import { useNavigate } from 'react-router-dom';
 
 const Home = ({ darkMode, toggleMode }) => {
+  const navigate= useNavigate();
+  const handleLanguageClick=(language)=>{
+    navigate(`/language/${language}`)
+
+  }
   return (
     <div className="w-full py-5">
       {/* Header */}
-      <div className="h-4 flex justify-between text-black dark:text-white">
-        <div className="px-16">
-          <a href="">
-            {darkMode ? <img src={logo} width={80} height={80} alt="Logo" /> : <img src={logoBLK} width={80} height={80} alt="Logo" />}
-          </a>
-        </div>
-        <div className="flex items-center gap-3 px-16">
-          {/* Toggle Button */}
-          <button
-            className="flex items-center justify-center w-8 h-8 font-light text-sm bg-neutral-900 dark:bg-white rounded-full text-white dark:text-black text-center"
-            onClick={toggleMode} // Only this button calls toggleMode
-          >
-            {darkMode ? <MdLightMode /> : <MdDarkMode />}
-          </button>
-          {/* GitHub Icon */}
-          <a href="" className="text-black dark:text-white text-3xl hover:text-blue-500">
-            <FaGithub />
-          </a>
-        </div>
-      </div>
+     
 
       {/* Hero */}
       <div className="flex flex-col mt-20 items-center dark:text-white text-black">
@@ -121,6 +104,7 @@ const Home = ({ darkMode, toggleMode }) => {
             <button
               key={index}
               className="flex items-center justify-between p-4 border m-3 border-gray-600 rounded-xl cursor-pointer"
+              onClick={()=>handleLanguageClick(lang.language)}
             >
               <span>{lang.language}</span>
               <img src={lang.logo} alt={`${lang.language} logo`} width="30" height="30" />
