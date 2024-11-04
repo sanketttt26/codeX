@@ -5,16 +5,7 @@ import Header from './component/Header';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Load dark mode preference from localStorage on initial load
-  useEffect(() => {
-    const savedMode = localStorage.getItem('darkMode');
-    setDarkMode(savedMode === 'true'); // Set initial theme based on stored preference
-  }, []);
-
-  // Update localStorage whenever darkMode changes
-  useEffect(() => {
-    localStorage.setItem('darkMode', darkMode);
-  }, [darkMode]);
+  
 
   // Toggle dark mode
   const toggleMode = () => {
