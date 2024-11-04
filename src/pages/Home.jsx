@@ -66,17 +66,32 @@
 
 // export default Home;
 
-import React from 'react';
-import languages from '../languages.js';
+import React, { useState } from 'react';
+import languageList from '../languages.js';
 
 import { useNavigate } from 'react-router-dom';
 
 const Home = ({ darkMode, toggleMode }) => {
+
+
+  //states
+
+  const [languages, setLanguages] = useState(languageList);
+
   const navigate= useNavigate();
   const handleLanguageClick=(language)=>{
     navigate(`/language/${language}`)
 
   }
+
+  const handleLanguageChange = (e) => {
+    const query = e.target.value;
+    const filteredLanguages = languageList.filter(
+      lang => lang.language.toLowerCase().includes(query.toLowerCase())
+    )
+    setLanguages(filteredLanguages);
+  }
+
   return (
     <div className="w-full py-5">
       {/* Header */}
@@ -95,6 +110,7 @@ const Home = ({ darkMode, toggleMode }) => {
             type="text"
             className="w-[50%] bg-transparent max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl p-4 border border-gray-500 rounded-md focus:outline-none hover:ring-1 focus:ring-2 focus:ring-white"
             placeholder="Search by Language"
+            onChange={handleLanguageChange}
           />
         </div>
 
