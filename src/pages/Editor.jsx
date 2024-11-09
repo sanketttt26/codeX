@@ -16,9 +16,10 @@ const Editor = () => {
     <div className='w-full '>
     <div className='flex gap-5 p-3'>
       {/* Input text area & generate button */}
-        <div className='flex flex-col w-[60%] gap-2'>
-            <div className='mt-5'>
+        <div className='flex flex-col w-[60%]'>
+            <div>
                 {/* input area */}
+<<<<<<< HEAD
                  <label htmlFor="problemStatement" className="text-lg font-semibold text-gray-700 mt-5 dark:text-white">
                 Enter your problem statement here, and let the AI code for you!
             </label>
@@ -35,16 +36,21 @@ const Editor = () => {
                 onClick={generateCodeFromAi}
                 >Generate with AI</button>
 
+=======
+                <p>Input box</p>
+                {/* button */}
+                <p>generate ai</p>
+>>>>>>> 447b2c0b4fcc78359828c510c861e8696e7e0775
             </div>
             <div>
                 {/* Code typing section here */}
-                <textarea name="" id="" cols="30" rows="10" className='w-full h-screen px-4 py-2 text-gray-700 bg-gray-100 border border-gray-300 rounded-lg resize-none dark:bg-gray-800'></textarea>
+                <textarea name="" id="" cols="30" rows="10" className='bg-[#eeeeee] w-full min-h-screen text-white rounded-lg border-none focus:ring-1'></textarea>
             </div>
         </div>
         {/* Input and output console + execute button */}
         <div className='w-[40%] flex flex-col px-5'>
             <div className='flex w-full items-center justify-end gap-3'>
-              <button className='bg-black text-white px-2 py-1 rounded-md dark:bg-white  dark:text-black '>
+              <button className='bg-black text-white px-2 py-1 rounded-md'>
               {language}
             </button>
             <button className='bg-blue-500 text-white px-2 py-1 rounded-md'>Run</button>
